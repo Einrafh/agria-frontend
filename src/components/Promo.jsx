@@ -1,11 +1,46 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { CountdownTimer } from "../components";
 import { promoProperti, promoYields, bintang, luas, mail, leftButton, rightButton } from "../assets";
 import PaginationLine from "../components/PaginationLine";
 import PropertyCard from "./PropertyCard.jsx";
 import YieldsCard from "./YieldsCard.jsx";
+import { getDataHomepage, postDataHomepage } from '../services/apiService';
 
 const Promo = () => {
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    const fetchData = async () => {
+        try {
+            const result = await getDataHomepage();
+            setData(result);
+            setLoading(false);
+        } catch (err) {
+            setError('Error fetching data');
+            setLoading(false);
+        }
+    };
+
+
+
+    // data.forEach(d => {
+    //     console.log(d)
+    // })
+
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+
+    // const userDetails = data.data.user_details;
+    // const propertiesPromo = data.data.properties_promo.properties;
+    // const productsPromo = data.data.products_promo.products;
+    // const properties = data.data.properties.data;
+    // const products = data.data.products;
+    // const educations = data.data.educations;
+
     const targetTime = new Date().setHours(23, 30, 0);
 
     // Simulasi data properti
@@ -158,10 +193,6 @@ const Promo = () => {
         yieldsCurrentPage * yieldsPerPage,
         (yieldsCurrentPage + 1) * yieldsPerPage
     );
-
-    const navigate = (pathname) => {
-        window.location.href = pathname
-    }
 
     // Property pagination handlers
     const handlePropertyNextPage = () => propertyCurrentPage < totalPropertyPages - 1 && setPropertyCurrentPage(propertyCurrentPage + 1);
