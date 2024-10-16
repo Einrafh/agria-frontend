@@ -8,7 +8,7 @@ const Features = () => (
                 agria
             </span>
         </h3>
-        <div className={"grid grid-cols-3 gap-x-8 my-14"}>
+        <div className={"grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-8 my-14"}>
             <div className={"my-card flex flex-col bg-tertiary rounded-3xl border-solid border-2 border-[#50C878] p-9 gap-y-3"}>
                 <img src={properti} alt="properti" className={"size-[108px]"}/>
                 <div className={"flex flex-col gap-y-3"}>

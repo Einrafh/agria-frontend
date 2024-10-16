@@ -4,23 +4,23 @@ import { promoProperti, promoYields, bintang, luas, mail, leftButton, rightButto
 import PaginationLine from "../components/PaginationLine";
 import PropertyCard from "./PropertyCard.jsx";
 import YieldsCard from "./YieldsCard.jsx";
-import { getDataHomepage, postDataHomepage } from '../services/apiService';
+// import { getDataHomepage, postDataHomepage } from '../services/apiService';
 
 const Promo = () => {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    const fetchData = async () => {
-        try {
-            const result = await getDataHomepage();
-            setData(result);
-            setLoading(false);
-        } catch (err) {
-            setError('Error fetching data');
-            setLoading(false);
-        }
-    };
+    // const [data, setData] = useState([]);
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
+    //
+    // const fetchData = async () => {
+    //     try {
+    //         const result = await getDataHomepage();
+    //         setData(result);
+    //         setLoading(false);
+    //     } catch (err) {
+    //         setError('Error fetching data');
+    //         setLoading(false);
+    //     }
+    // };
 
 
 
@@ -29,9 +29,9 @@ const Promo = () => {
     // })
 
 
-    useEffect(() => {
-        fetchData();
-    }, []);
+    // useEffect(() => {
+    //     fetchData();
+    // }, [data]);
 
 
     // const userDetails = data.data.user_details;
@@ -173,13 +173,46 @@ const Promo = () => {
         // Tambahkan item lainnya...
     ];
 
-    // Pagination setup
+    // Pagination states
     const [propertyCurrentPage, setPropertyCurrentPage] = useState(0);
     const [yieldsCurrentPage, setYieldsCurrentPage] = useState(0);
 
-    const propertyPerPage = 3;
+    // States to hold per-page values
+    const [propertyPerPage, setPropertyPerPage] = useState(3);
+    const [yieldsPerPage, setYieldsPerPage] = useState(4);
+
+    // Update per-page values based on screen size
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 1024) {
+                // lg screen: 3 pages
+                setPropertyPerPage(3);
+                setYieldsPerPage(4);
+            } else if (window.innerWidth >= 768) {
+                // md screen: 4 pages for property, 4 pages for yields
+                setPropertyPerPage(4);
+                setYieldsPerPage(4);
+            } else {
+                // smaller screens: 3 pages for property, 4 pages for yields
+                setPropertyPerPage(3);
+                setYieldsPerPage(4);
+            }
+        };
+
+        // Run handleResize on initial load
+        handleResize();
+
+        // Add event listener to watch for window resizing
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup the event listener when component unmounts
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    // Calculate total pages
     const totalPropertyPages = Math.ceil(property.length / propertyPerPage);
-    const yieldsPerPage = 4;
     const totalYieldsPages = Math.ceil(yields.length / yieldsPerPage);
 
     // Get items for current page (Properties)
@@ -195,26 +228,42 @@ const Promo = () => {
     );
 
     // Property pagination handlers
-    const handlePropertyNextPage = () => propertyCurrentPage < totalPropertyPages - 1 && setPropertyCurrentPage(propertyCurrentPage + 1);
-    const handlePropertyPreviousPage = () => propertyCurrentPage > 0 && setPropertyCurrentPage(propertyCurrentPage - 1);
+    const handlePropertyNextPage = () => {
+        if (propertyCurrentPage < totalPropertyPages - 1) {
+            setPropertyCurrentPage(propertyCurrentPage + 1);
+        }
+    };
+    const handlePropertyPreviousPage = () => {
+        if (propertyCurrentPage > 0) {
+            setPropertyCurrentPage(propertyCurrentPage - 1);
+        }
+    };
 
     // Yields pagination handlers
-    const handleYieldsNextPage = () => yieldsCurrentPage < totalYieldsPages - 1 && setYieldsCurrentPage(yieldsCurrentPage + 1);
-    const handleYieldsPreviousPage = () => yieldsCurrentPage > 0 && setYieldsCurrentPage(yieldsCurrentPage - 1);
+    const handleYieldsNextPage = () => {
+        if (yieldsCurrentPage < totalYieldsPages - 1) {
+            setYieldsCurrentPage(yieldsCurrentPage + 1);
+        }
+    };
+    const handleYieldsPreviousPage = () => {
+        if (yieldsCurrentPage > 0) {
+            setYieldsCurrentPage(yieldsCurrentPage - 1);
+        }
+    };
 
     return (
         <section>
             {/* Promo Properti Header */}
             <div className="flex flex-row justify-between items-center my-16">
-                <h3 className="font-dmSans font-bold text-4xl mr-2">Promo Properti</h3>
+                <h3 className="font-dmSans font-bold text-3xl md:text-4xl mr-2">Promo Properti</h3>
                 <div className="flex flex-row items-center">
-                    <h3 className="font-dmSans text-gray-500 text-3xl mr-4">Berakhir dalam</h3>
+                    <h3 className="font-dmSans text-gray-500 text-3xl mr-4 lg:block hidden">Berakhir dalam</h3>
                     <CountdownTimer targetTime={targetTime} />
                 </div>
             </div>
 
             {/* Grid of Property Items */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6">
                 {paginatedPropertyItems.map((item, index) => (
                     <PropertyCard key={index} item={item}/>
                 ))}
@@ -235,20 +284,20 @@ const Promo = () => {
 
             {/* Yields Section */}
             <div className="flex flex-row justify-between items-center my-16">
-                <h3 className="font-dmSans font-bold text-4xl mr-2">Promo Bahan Baku</h3>
+                <h3 className="font-dmSans font-bold text-3xl md:text-4xl mr-2">Promo Bahan Baku</h3>
                 <div className="flex flex-row items-center">
-                    <h3 className="font-dmSans text-gray-500 text-3xl mr-4">Berakhir dalam</h3>
+                    <h3 className="font-dmSans text-gray-500 text-3xl mr-4 lg:block hidden">Berakhir dalam</h3>
                     <CountdownTimer targetTime={targetTime} />
                 </div>
             </div>
 
             {/* Grid of Yields Items */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6">
                 {paginatedYieldsItems.map((item, index) => (
                     <YieldsCard key={index} item={item}/>
                 ))}
             </div>
-
+            {/*{ data.properties_promo.properties()}*/}
             {/* Pagination Controls for Yields */}
             <div className="flex justify-between mx-4 my-9 items-center">
                 <PaginationLine currentPage={yieldsCurrentPage} totalPages={totalYieldsPages}/>

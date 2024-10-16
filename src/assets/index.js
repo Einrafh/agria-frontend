@@ -24,8 +24,14 @@ import filter from "./filter.svg";
 import google from "./google.svg";
 import hero from "./hero.svg";
 import heroBackground from "./heroBackground.png";
+import heroBackgroundMobile from "./heroBackgroundMobile.png";
+import heroBackgroundIpad from "./heroBackgroundIpad.png";
 import heroBackgroundShadow1 from "./heroBackgroundShadow1.png";
+import heroBackgroundMobileShadow1 from "./heroBackgroundMobileShadow1.png";
+import heroBackgroundIpadShadow1 from "./heroBackgroundIpadShadow1.png";
 import heroBackgroundShadow2 from "./heroBackgroundShadow2.png";
+import heroBackgroundMobileShadow2 from "./heroBackgroundMobileShadow2.png";
+import heroBackgroundIpadShadow2 from "./heroBackgroundIpadShadow2.png";
 import heroShadow1 from "./heroShadow1.svg";
 import heroShadow2 from "./heroShadow2.svg";
 import homeIcon from "./homeIcon.svg";
@@ -52,6 +58,7 @@ import save from "./save.svg";
 import smallImgDetail from "./smallImgDetail.png";
 import texture from "./texture.png";
 import view from "./view.svg";
+import whiteArrowDown from "./whiteArrowDown.svg";
 import whiteComment from "./whiteComment.svg";
 import whiteDot from "./whiteDot.svg";
 import whiteFacebook from "./whiteFacebook.svg";
@@ -89,8 +96,14 @@ export {
     google,
     hero,
     heroBackground,
+    heroBackgroundMobile,
+    heroBackgroundIpad,
     heroBackgroundShadow1,
+    heroBackgroundMobileShadow1,
+    heroBackgroundIpadShadow1,
     heroBackgroundShadow2,
+    heroBackgroundMobileShadow2,
+    heroBackgroundIpadShadow2,
     heroShadow1,
     heroShadow2,
     homeIcon,
@@ -117,6 +130,7 @@ export {
     smallImgDetail,
     texture,
     view,
+    whiteArrowDown,
     whiteComment,
     whiteDot,
     whiteFacebook,

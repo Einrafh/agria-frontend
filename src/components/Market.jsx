@@ -270,7 +270,7 @@ const Market = ({category}) => {
                             Jawa Timur
                         </h3>
                     </div>
-                    <div className="grid grid-rows-2 grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-rows-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {property.slice(0, 6).map((item, index) => (
                             <PropertyCard key={index} item={item} />
                         ))}
@@ -283,7 +283,7 @@ const Market = ({category}) => {
                             Daftar Bahan Baku
                         </h3>
                     </div>
-                    <div className="grid grid-rows-2 grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-rows-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {yields.slice(0, 8).map((item, index) => (
                             <YieldsCard key={index} item={item} />
                         ))}
@@ -294,7 +294,7 @@ const Market = ({category}) => {
                 href="/market"
                 className="block shadow-md rounded-xl mt-6 mb-20 border-2 border-transparent hover:border-primary transition-colors duration-100"
             >
-                <h3 className="font-dmSans font-bold text-3xl text-center py-6">
+                <h3 className="font-dmSans font-bold text-2xl md:text-3xl text-center py-6">
                     Lihat selengkapnya
                 </h3>
             </a>
