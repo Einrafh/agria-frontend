@@ -29,7 +29,7 @@ export default function Home() {
                          className="md:block lg:hidden hidden absolute top-0 left-0 z-30"/>
                     <img src={heroBackground} alt="" className="lg:block hidden absolute top-0 left-0 z-30"/>
 
-                    <button className="absolute lg:bottom-8 left-1/2 transform -translate-x-1/2 z-40">
+                    <button className="absolute -bottom-20 md:-bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 z-40">
                         <img src={whiteArrowDown} alt="arrowDown" className="size-8"/>
                     </button>
                 </div>

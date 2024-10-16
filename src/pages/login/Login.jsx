@@ -49,7 +49,7 @@ export default function Login() {
                         </h3>
                     </div>
                 </div>
-                <a className="bg-secondary rounded-lg mb-6 w-full">
+                <a href="/" className="bg-secondary rounded-lg my-6 w-full block">
                     <h3 className="font-dmSans font-bold text-base text-white text-center py-4">
                         Login
                     </h3>
