@@ -106,7 +106,7 @@ export default function Home() {
             <div className={"bg-white border-t-4 border-secondary"}>
                 <div className={`${styles.paddingX} ${styles.flexStart}`}>
                     <div className={`${styles.boxWidth}`}>
-                        <Education/>
+                        <Education data={data}/>
                     </div>
                 </div>
             </div>

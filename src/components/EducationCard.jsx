@@ -10,7 +10,7 @@ const EducationCard = ({ item }) => {
         >
             {/* Gambar */}
             <img
-                src={item.image}
+                src={item.photo_url}
                 alt="education"
                 className={"w-full lg:w-[408px] h-auto object-cover"}
             />
@@ -26,13 +26,13 @@ const EducationCard = ({ item }) => {
                 <div className="md:flex md:flex-row md:justify-between md:items-center">
                     {/* Profil dan tanggal */}
                     <div className={"flex flex-row items-center gap-x-4 mb-4"}>
-                        <img src={item.profile} alt="eduProfile" className={"w-10 h-10 lg:w-14 lg:h-14 rounded-full"} />
+                        <img src={item.photo_url_author} alt="eduProfile" className={"w-10 h-10 lg:w-14 lg:h-14 rounded-full"} />
                         <div className={"flex flex-col gap-y-1"}>
                             <h3 className={"font-dmSans font-bold text-lg lg:text-xl"}>
-                                {item.name}
+                                {item.name_of_author}
                             </h3>
                             <h3 className={"font-dmSans text-sm lg:text-base"}>
-                                {item.date}
+                                {item.created_at}
                             </h3>
                         </div>
                     </div>
@@ -41,19 +41,19 @@ const EducationCard = ({ item }) => {
                         <div className={"flex flex-row items-center gap-x-2 lg:gap-x-4"}>
                             <img src={love} alt="love" className={"w-4 h-4 lg:w-6 lg:h-6"} />
                             <h3 className={"font-dmSans font-bold text-lg lg:text-xl text-[#969696]"}>
-                                {item.likes}
+                                {item.count_likes}
                             </h3>
                         </div>
                         <div className={"flex flex-row items-center gap-x-2 lg:gap-x-4"}>
                             <img src={view} alt="view" className={"w-4 h-4 lg:w-6 lg:h-6"} />
                             <h3 className={"font-dmSans font-bold text-lg lg:text-xl text-[#969696]"}>
-                                {item.views}
+                                {item.count_views}
                             </h3>
                         </div>
                         <div className={"flex flex-row items-center gap-x-2 lg:gap-x-4"}>
                             <img src={comment} alt="comment" className={"w-4 h-4 lg:w-6 lg:h-6"} />
                             <h3 className={"font-dmSans font-bold text-lg lg:text-xl text-[#969696]"}>
-                                {item.comments}
+                                {item.count_comments}
                             </h3>
                         </div>
                     </div>

@@ -197,8 +197,8 @@ const Market = ({category, data}) => {
         // Tambahkan item lainnya...
     ];*/
 
-    const property = data?.properties?.data || [];
-    const yields = data?.products || [];
+    const property = data?.data?.properties?.data || [];
+    const yields = data?.data?.products || [];
 
     const [menuActiveIndex, setMenuActiveIndex] = useState(null);
     const [categoryActiveIndex, setCategoryActiveIndex] = useState(null);

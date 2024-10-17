@@ -2,7 +2,8 @@ import EducationCard from "./EducationCard.jsx";
 import {education, eduProfile} from "../assets/index.js";
 import PropertyCard from "./PropertyCard.jsx";
 
-const Education = () => {
+const Education = ({data}) => {
+    /*
     const education2 = [
         {
             image: education,
@@ -92,6 +93,9 @@ const Education = () => {
             link: "/content"
         },
     ]
+    */
+
+    const education2 = data?.data?.educations || [];
 
     return (
         <section>

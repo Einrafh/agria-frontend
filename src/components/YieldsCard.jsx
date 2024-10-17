@@ -1,6 +1,13 @@
 import { bintang, luas, mail } from "../assets/index.js";
 
 const YieldsCard = ({ item }) => {
+    const formatRupiah = (amount) => {
+        return new Intl.NumberFormat('id-ID', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+        }).format(amount);
+    };
+
     return (
         <a
             href="/yields"
@@ -23,7 +30,10 @@ const YieldsCard = ({ item }) => {
                     <h3 className="font-dmSans text-base text-[#969696]">
                         Rp
                         <span className="text-xl text-black">
-                            {item.discount_price}
+                            {item.discount_price !== 0 
+                                ? formatRupiah(item.discount_price) 
+                                : formatRupiah(item.price)
+                            }
                         </span>
                         /kg
                     </h3>
