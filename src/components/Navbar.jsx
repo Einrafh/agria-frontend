@@ -1,10 +1,21 @@
-import { useState } from "react";
-import { close, logo, menu } from "../assets";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate to handle redirection
+import {cart, close, logo, menu, message, navbarProfile, notification} from "../assets";
 import { navLinks } from "../constants";
 
 const Navbar = ({ initialActive }) => {
     const [active, setActive] = useState(initialActive);
     const [toggle, setToggle] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // New state to track login status
+    const navigate = useNavigate(); // Initialize navigate function
+
+    useEffect(() => {
+        // Check if "access_token" exists in localStorage
+        const token = localStorage.getItem("access_token");
+        if (token) {
+            setIsLoggedIn(true); // Set login status to true
+        }
+    }, []); // Run once when the component is mounted
 
     return (
         <nav className="w-screen bg-primary py-4 rounded-b-[48px] drop-shadow-md">
@@ -39,14 +50,18 @@ const Navbar = ({ initialActive }) => {
                         ))}
                     </ul>
 
-                    {/* Desktop Buttons */}
+                    {/* Desktop Buttons (Hide if logged in) */}
                     <div className="hidden lg:flex space-x-4 mx-6">
-                        <a className="font-dmSans font-bold text-base px-5 py-3 border-2 border-white rounded-lg text-white" href="/login">
-                            Masuk
-                        </a>
-                        <a className="font-dmSans font-bold text-base px-5 py-3 bg-[#DCF4E4] text-[#50C878] rounded-lg border-2 border-[#DCF4E4]" href="/register">
-                            Daftar
-                        </a>
+                        {!isLoggedIn && (
+                            <>
+                                <a className="font-dmSans font-bold text-base px-5 py-3 border-2 border-white rounded-lg text-white" href="/login">
+                                    Masuk
+                                </a>
+                                <a className="font-dmSans font-bold text-base px-5 py-3 bg-[#DCF4E4] text-[#50C878] rounded-lg border-2 border-[#DCF4E4]" href="/register">
+                                    Daftar
+                                </a>
+                            </>
+                        )}
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -105,14 +120,18 @@ const Navbar = ({ initialActive }) => {
                             ))}
                         </ul>
 
-                        {/* Mobile/Tablet Buttons */}
+                        {/* Mobile/Tablet Buttons (Hide if logged in) */}
                         <div className="mt-8 space-y-4">
-                            <a className="font-dmSans font-bold text-base block text-center px-5 py-3 border-2 border-white rounded-lg text-white" href="/login">
-                                Masuk
-                            </a>
-                            <a className="font-dmSans font-bold text-base block text-center px-5 py-3 bg-[#DCF4E4] text-[#50C878] rounded-lg border-2 border-[#DCF4E4]" href="/register">
-                                Daftar
-                            </a>
+                            {!isLoggedIn && (
+                                <>
+                                    <a className="font-dmSans font-bold text-base block text-center px-5 py-3 border-2 border-white rounded-lg text-white" href="/login">
+                                        Masuk
+                                    </a>
+                                    <a className="font-dmSans font-bold text-base block text-center px-5 py-3 bg-[#DCF4E4] text-[#50C878] rounded-lg border-2 border-[#DCF4E4]" href="/register">
+                                        Daftar
+                                    </a>
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>

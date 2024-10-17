@@ -12,347 +12,529 @@ import {
 import YieldsPromo from "../../components/YieldsPromo.jsx";
 import YieldsCard from "../../components/YieldsCard.jsx";
 import PaginationNumber from "../../components/PaginationNumber.jsx";
+import { getDataMarket } from '../../services/apiService';
 
 const Market = ({category}) => {
-    const property = [
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
-        {
-            photo_url: promoProperti,
-            category_name: "Pertanian",
-            ratings: 4.8,
-            name: "Lahan Pertanian Padi",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "20.000.000",
-            width: 900,
-            ownership_type: "SHM"
-        },
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
+    const fetchData = async () => {
+        try {
+            const result = await getDataMarket();
+            setData(result);
+            setLoading(false);
+        } catch (err) {
+            console.log(err);
+            setError('Error fetching data');
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const property = data?.data?.properties?.data || [];
+    const yields = data?.data?.products?.products || [];
+
+    /*const property = [
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.1,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "35.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.1,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "35.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.1,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "35.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.1,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "35.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.1,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "35.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
+        {
+            image: promoProperti,
+            category: "Pertanian",
+            rating: 4.8,
+            title: "Lahan Pertanian Padi",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "20.000.000",
+            area: 900,
+            certificate: "SHM"
+        },
         // Tambahkan item lainnya...
     ];
 
     const yields = [
         {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
+            image: promoYields,
+            category: "Pertanian",
+            rating: 4.5,
+            title: "Bayam Sore",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "127.500",
+            area: 900,
+            certificate: "SHM"
         },
         {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
+            image: promoYields,
+            category: "Pertanian",
+            rating: 4.5,
+            title: "Bayam Sore",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "127.500",
+            area: 900,
+            certificate: "SHM"
         },
         {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
+            image: promoYields,
+            category: "Pertanian",
+            rating: 4.5,
+            title: "Bayam Sore",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "127.500",
+            area: 900,
+            certificate: "SHM"
         },
         {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
+            image: promoYields,
+            category: "Pertanian",
+            rating: 4.5,
+            title: "Bayam Sore",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "50.000.000",
+            area: 900,
+            certificate: "SHM"
         },
         {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
+            image: promoYields,
+            category: "Pertanian",
+            rating: 4.5,
+            title: "Bayam Sore",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "127.500",
+            area: 900,
+            certificate: "SHM"
         },
-        {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
-        },
-        {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
-        },
-        {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
-        },
-        {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
-        },
-        {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
-        },
-
         // Tambahkan item lainnya...
-    ];
+    ];*/
 
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 18;
@@ -401,9 +583,9 @@ const Market = ({category}) => {
                         setCategoryActiveIndex={handleCategoryChange}
                     />
                     {/* Jika Properti dipilih */}
-                    {activeCategory === 0 && <PropertyPromo/>}
+                    {activeCategory === 0 && <PropertyPromo data={data}/>}
                     {/* Jika Bahan Baku dipilih */}
-                    {activeCategory === 1 && <YieldsPromo/>}
+                    {activeCategory === 1 && <YieldsPromo data={data}/>}
                 </div>
             </div>
 

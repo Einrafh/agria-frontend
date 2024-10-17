@@ -4,94 +4,66 @@ import PaginationLine from "../components/PaginationLine";
 import CountdownTimer from "../components/CountdownTimer";
 import YieldsCard from "./YieldsCard.jsx";
 
-const YieldsPromo = () => {
-    const targetTime = new Date().setHours(23, 30, 0);
+const YieldsPromo = ({data}) => {
+    console.log(data);
+    const targetTime = Date.now() + (data?.data?.products_promo?.time_life_in_seconds || 0) * 1000;
 
     // Simulasi data yields
-    const yields = [
+    /*const yields = [
         {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
+            image: promoYields,
+            category: "Pertanian",
+            rating: 4.5,
+            title: "Bayam Sore",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "127.500",
+            area: 900,
+            certificate: "SHM"
         },
         {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
+            image: promoYields,
+            category: "Pertanian",
+            rating: 4.5,
+            title: "Bayam Sore",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "127.500",
+            area: 900,
+            certificate: "SHM"
         },
         {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
+            image: promoYields,
+            category: "Pertanian",
+            rating: 4.5,
+            title: "Bayam Sore",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "127.500",
+            area: 900,
+            certificate: "SHM"
         },
         {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
+            image: promoYields,
+            category: "Pertanian",
+            rating: 4.5,
+            title: "Bayam Sore",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "50.000.000",
+            area: 900,
+            certificate: "SHM"
         },
         {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
+            image: promoYields,
+            category: "Pertanian",
+            rating: 4.5,
+            title: "Bayam Sore",
+            address: "Jl. Tvri, Oro-Oro Ombo",
+            price: "127.500",
+            area: 900,
+            certificate: "SHM"
         },
-        {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
-        },
-        {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
-        },
-        {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
-        },
-        {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
-        },
-        {
-            photo_url: promoYields,
-            category_name: "Pertanian",
-            ratings: 4.5,
-            name: "Bayam Sore",
-            city: "Jl. Tvri, Oro-Oro Ombo",
-            discount_price: "127.500",
-        },
-
         // Tambahkan item lainnya...
-    ];
+    ];*/
+
+    const yields = data?.data?.products_promo?.products || [];
 
     // Pagination setup
     const [yieldsCurrentPage, setYieldsCurrentPage] = useState(0);

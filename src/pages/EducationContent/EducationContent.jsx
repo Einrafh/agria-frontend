@@ -14,14 +14,14 @@ const EducationContent = () => {
     // Simulasi data education
     const education = [
         {
-            image: promoYields,
-            category: "Pertanian",
-            rating: 4.5,
-            title: "Bayam Sore",
-            address: "Jl. Tvri, Oro-Oro Ombo",
-            price: "127.500",
-            area: 900,
-            certificate: "SHM"
+            photo_url: promoYields,
+            category_name: "Pertanian",
+            ratings: 4.5,
+            name: "Bayam Sore",
+            city: "Jl. Tvri, Oro-Oro Ombo",
+            discount_price: "127.500",
+            width: 900,
+            ownership_type: "SHM"
         },
         // Tambahkan item lainnya...
     ];

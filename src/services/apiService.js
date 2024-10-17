@@ -28,6 +28,26 @@ export const getDataHomepage = async () => {
     }
 };
 
+export const getDataMarket = async () => {
+    try {
+        const response = await api.get('https://agria-backend.iyh.me/v1/menu/market');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        throw error;
+    }
+};
+
+export const getDataEducation = async () => {
+    try {
+        const response = await api.get('https://agria-backend.iyh.me/v1/menu/education');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        throw error;
+    }
+};
+
 export const postDataHomepage = async (data) => {
     try {
         const response = await api.post('https://agria-backend.iyh.me/v1/menu/homepage', data);

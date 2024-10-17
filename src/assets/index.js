@@ -68,6 +68,10 @@ import whiteTwitter from "./whiteTwitter.svg";
 import whiteView from "./whiteView.svg";
 import whiteYoutube from "./whiteYoutube.svg";
 import promoYields from "./yields.png";
+import message from "./message.svg";
+import notification from "./notification.svg";
+import cart from "./cart.svg";
+import navbarProfile from "./navbarProfile.png";
 
 export {
     arrowDown,
@@ -140,4 +144,8 @@ export {
     whiteView,
     whiteYoutube,
     promoYields,
+    message,
+    cart,
+    notification,
+    navbarProfile,
 }

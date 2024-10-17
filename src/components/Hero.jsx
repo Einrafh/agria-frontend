@@ -4,7 +4,7 @@ import { farm } from "../assets";
 const Hero = () => (
     <section id="home" className={`flex md:flex-row flex-col ${styles.paddingY}`}>
         <div className={`flex-1 ${styles.flexStart} flex-col w-full`}>
-            <div className="hidden lg:block lg:flex flex-row items-center justify-between w-full p-12 gap-x-24">
+            <div className="hidden lg:flex flex-row items-center justify-between w-full p-12 gap-x-24">
                 {/* Text Section */}
                 <div className="flex flex-col justify-between space-y-14 w-2/3">
                     <h1 className="font-dmSans font-bold text-3xl text-center md:text-left md:text-5xl lg:text-6xl text-white leading-tight">

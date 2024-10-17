@@ -11,17 +11,38 @@ import {
     view,
 } from "../../assets/index.js";
 import PaginationLine from "../../components/PaginationLine.jsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import EducationCard from "../../components/EducationCard.jsx";
 import LargeMustReadCard from "./LargeMustReadCard.jsx";
 import MustReadCard from "./MustReadCard.jsx";
 import SmallMustReadCard from "./SmallMustReadCard.jsx";
 import SmallEducationCard from "../../components/SmallEducationCard.jsx";
 import PaginationNumber from "../../components/PaginationNumber.jsx";
+import { getDataEducation } from '../../services/apiService';
 
 const Education = () => {
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    const fetchData = async () => {
+        try {
+            const result = await getDataEducation();
+            setData(result);
+            setLoading(false);
+        } catch (err) {
+            console.log(err);
+            setError('Error fetching data');
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     // Simulasi data education
-    const education1 = [
+    /*const education1 = [
         {
             image: mustRead,
             profile: eduProfile,
@@ -83,9 +104,22 @@ const Education = () => {
             comments: 3,
         },
         // Tambahkan item lainnya...
-    ];
+    ];*/
 
-    const dataSmallMustRead = {
+    const education1 = data?.data?.latest || [];
+
+    /*
+    const dataSmallMustRead1 = {
+        image: mustReadSmall,
+        profile: eduProfile,
+        name: "Rashky",
+        date: "2 September 2023",
+        title: "23 Cara Membuat Tanah Lebih Subur, Salah Satunya Pakai Pupuk Kimia?",
+        likes: 1,
+        views: 23,
+        comments: 3,
+    };
+    const dataSmallMustRead2 = {
         image: mustReadSmall,
         profile: eduProfile,
         name: "Rashky",
@@ -119,8 +153,19 @@ const Education = () => {
         views: 23,
         comments: 3,
         eduProfile: eduProfile,
-    };
+    };*/
 
+    const mainArticle = data?.data?.main_article || {};
+
+
+    console.log(data?.data)
+
+    const dataSmallMustRead1 = data?.data?.must_read[0] || {};
+    const dataSmallMustRead2 = data?.data?.must_read[1] || {};
+    const dataMustRead = data?.data?.must_read[2] || {};
+    const dataLargeMustRead = data?.data?.must_read[3] || {};
+
+    /*
     const education2 = [
         {
             image: education,
@@ -209,7 +254,9 @@ const Education = () => {
             comments: 3,
             link: "/content"
         },
-    ]
+    ]*/
+
+    const education2 = data?.data?.discover_more?.data || [];
 
     const [educationCurrentPage, setEducationCurrentPage] = useState(0);
 
@@ -238,6 +285,13 @@ const Education = () => {
 
     const totalPages = Math.ceil(education2.length / itemsPerPage);
 
+    const getFirst100Words = (content) => {
+        if (!content) return ''; // Menghindari error jika content tidak ada
+        const words = content.split(' '); // Memisahkan berdasarkan spasi
+        const first100Words = words.slice(0, 80).join(' '); // Mengambil 100 kata pertama dan menggabungkannya kembali
+        return first100Words;
+    };
+
     return (
         <div className="w-full h-full">
             <div className={`fixed z-50 ${styles.flexCenter}`}>
@@ -254,39 +308,33 @@ const Education = () => {
                         <div className="flex flex-col m-6 lg:m-9 justify-between">
                             <div className="flex flex-col lg:flex-row gap-y-4 lg:gap-x-12">
                                 <h3 className="font-dmSans font-bold text-xl lg:text-3xl">
-                                    23 Cara Membuat Tanah Lebih Subur, Salah Satunya Pakai Pupuk Kimia?
+                                    {mainArticle.title}
                                 </h3>
                                 <img src={save} alt="save" className="w-6 h-6 lg:w-7 lg:h-7 m-1 hidden lg:block"/>
                             </div>
                             <p className="font-dmSans text-sm lg:text-base pr-0 lg:pr-20 my-4 lg:my-6">
-                                Lorem ipsum dolor sit amet consectetur. Neque consequat urna amet blandit. Metus tellus
-                                libero at adipiscing
-                                justo ut proin dignissim. Id curabitur congue ultricies nulla magna. Ut nec ac aliquam
-                                nibh ridiculus. Libero
-                                nulla nec sit ultrices ac. Sed donec sit dapibus mattis. In lacus commodo et ac orci
-                                molestie tortor velit
-                                semper. Porttitor amet facilisi fringilla volutpat convallis quis.
+                                {getFirst100Words(mainArticle.content)}
                             </p>
                             <div className="flex flex-col md:flex-row justify-between gap-y-4">
                                 <div className="flex flex-row gap-x-4 lg:gap-x-6">
-                                    <img src={eduProfile} alt="eduProfile" className="w-10 h-10 lg:w-14 lg:h-14"/>
+                                    <img src={mainArticle.photo_url_author} alt="eduProfile" className="w-10 h-10 lg:w-14 lg:h-14"/>
                                     <div className="flex flex-col justify-center">
-                                        <h3 className="font-dmSans font-bold text-base lg:text-xl">Rafly</h3>
-                                        <h3 className="font-dmSans text-sm lg:text-base">19 September 2024</h3>
+                                        <h3 className="font-dmSans font-bold text-base lg:text-xl">{mainArticle.author}</h3>
+                                        <h3 className="font-dmSans text-sm lg:text-base">{mainArticle.created_at}</h3>
                                     </div>
                                 </div>
                                 <div className="flex flex-row justify-between items-end gap-x-8 lg:gap-x-12">
                                     <div className="flex flex-row items-center gap-x-2 lg:gap-x-4">
                                         <img src={love} alt="love" className="w-4 h-4 lg:w-6 lg:h-6"/>
-                                        <h3 className="font-dmSans font-bold text-sm lg:text-xl text-[#969696]">1</h3>
+                                        <h3 className="font-dmSans font-bold text-sm lg:text-xl text-[#969696]">{mainArticle.count_likes}</h3>
                                     </div>
                                     <div className="flex flex-row items-center gap-x-2 lg:gap-x-4">
                                         <img src={view} alt="view" className="w-4 h-4 lg:w-6 lg:h-6"/>
-                                        <h3 className="font-dmSans font-bold text-sm lg:text-xl text-[#969696]">23</h3>
+                                        <h3 className="font-dmSans font-bold text-sm lg:text-xl text-[#969696]">{mainArticle.count_views}</h3>
                                     </div>
                                     <div className="flex flex-row items-center gap-x-2 lg:gap-x-4">
                                         <img src={comment} alt="comment" className="w-4 h-4 lg:w-6 lg:h-6"/>
-                                        <h3 className="font-dmSans font-bold text-sm lg:text-xl text-[#969696]">3</h3>
+                                        <h3 className="font-dmSans font-bold text-sm lg:text-xl text-[#969696]">{mainArticle.count_comments}</h3>
                                     </div>
                                 </div>
                             </div>
@@ -329,8 +377,8 @@ const Education = () => {
                             <LargeMustReadCard item={dataLargeMustRead}/>
 
                             <div className="grid grid-rows-2 h-full gap-y-6">
-                                <SmallMustReadCard item={dataSmallMustRead}/>
-                                <SmallMustReadCard item={dataSmallMustRead}/>
+                                <SmallMustReadCard item={dataSmallMustRead1}/>
+                                <SmallMustReadCard item={dataSmallMustRead2}/>
                             </div>
                         </div>
                     </div>
