@@ -29,7 +29,7 @@ const EducationCard = ({ item }) => {
                         <img src={item.photo_url_author} alt="eduProfile" className={"w-10 h-10 lg:w-14 lg:h-14 rounded-full"} />
                         <div className={"flex flex-col gap-y-1"}>
                             <h3 className={"font-dmSans font-bold text-lg lg:text-xl"}>
-                                {item.name_of_author}
+                            {item.name_of_author || item.author}
                             </h3>
                             <h3 className={"font-dmSans text-sm lg:text-base"}>
                                 {item.created_at}

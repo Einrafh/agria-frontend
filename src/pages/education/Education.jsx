@@ -108,7 +108,18 @@ const Education = () => {
 
     const education1 = data?.data?.latest || [];
 
-    const dataSmallMustRead = {
+    
+    const dataSmallMustRead1 = {
+        image: mustReadSmall,
+        profile: eduProfile,
+        name: "Rashky",
+        date: "2 September 2023",
+        title: "23 Cara Membuat Tanah Lebih Subur, Salah Satunya Pakai Pupuk Kimia?",
+        likes: 1,
+        views: 23,
+        comments: 3,
+    };
+    const dataSmallMustRead2 = {
         image: mustReadSmall,
         profile: eduProfile,
         name: "Rashky",
@@ -143,7 +154,16 @@ const Education = () => {
         comments: 3,
         eduProfile: eduProfile,
     };
+    
 
+    console.log(data?.data)
+    
+    // const dataSmallMustRead1 = data?.data?.must_read[0] || {};
+    // const dataSmallMustRead2 = data?.data?.must_read[1] || {};
+    // const dataMustRead = data?.data?.must_read[2] || {};
+    // const dataLargeMustRead = data?.data?.must_read[2] || {};
+
+    /*
     const education2 = [
         {
             image: education,
@@ -232,7 +252,9 @@ const Education = () => {
             comments: 3,
             link: "/content"
         },
-    ]
+    ]*/
+
+    const education2 = data?.data?.discover_more?.data || [];
 
     const [educationCurrentPage, setEducationCurrentPage] = useState(0);
 
@@ -352,8 +374,8 @@ const Education = () => {
                             <LargeMustReadCard item={dataLargeMustRead}/>
 
                             <div className="grid grid-rows-2 h-full gap-y-6">
-                                <SmallMustReadCard item={dataSmallMustRead}/>
-                                <SmallMustReadCard item={dataSmallMustRead}/>
+                                <SmallMustReadCard item={dataSmallMustRead1}/>
+                                <SmallMustReadCard item={dataSmallMustRead2}/>
                             </div>
                         </div>
                     </div>
