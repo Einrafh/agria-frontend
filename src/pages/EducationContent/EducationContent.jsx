@@ -1,5 +1,5 @@
 import styles from "../../style.js";
-import {Navbar} from "../../components/index.js";
+import {Footer, Navbar} from "../../components/index.js";
 import {
     dot,
     educationContent, educationContentSmall1,
@@ -494,6 +494,12 @@ const EducationContent = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            {/* Footer Section */}
+            <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
+                <div className={`${styles.boxWidth}`}>
+                    <Footer/>
                 </div>
             </div>
         </div>

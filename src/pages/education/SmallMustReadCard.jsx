@@ -5,7 +5,7 @@ const SmallMustReadCard = ({ item }) => {
     return (
         <a
             href="/content"
-            className="rounded-2xl shadow-md border-2 border-transparent overflow-hidden cursor-pointer hover:border-primary transition-colors duration-100"
+            className="hidden md:block rounded-2xl shadow-md border-2 border-transparent overflow-hidden cursor-pointer hover:border-primary transition-colors duration-100"
         >
             <img src={item.image} alt="image" />
             <div className="flex flex-col pt-4 pb-6 px-6 gap-y-4">

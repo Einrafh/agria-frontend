@@ -5,6 +5,7 @@ import YieldsCard from "./YieldsCard.jsx";
 import SubCategoryFilter from "./SubCategoryFilter.jsx";
 import PropertyPromo from "./PropertyPromo.jsx";
 import YieldsPromo from "./YieldsPromo.jsx";
+import CategoryFilter from "./CategoryFilter.jsx";
 
 const Market = ({category}) => {
     const property = [
@@ -234,30 +235,7 @@ const Market = ({category}) => {
 
     return (
         <section>
-            <div className={"flex flex-row justify-between items-center mt-20 mb-16 gap-x-6"}>
-                <div className={"rounded-full shadow-md"}>
-                    <ul className={"flex flex-row items-center"}>
-                        {menuItems.map((item, index) => (
-                            <button
-                                key={index}
-                                className={`px-16 py-6 ${menuActiveIndex === index ? 'bg-secondary rounded-full text-white' : ''}`}
-                                onClick={() => handleMenuClick(index)}
-                            >
-                                <h3 className={"font-dmSans font-bold text-xl"}>
-                                    {item}
-                                </h3>
-                            </button>
-                        ))}
-                    </ul>
-                </div>
-                <div className={"flex flex-row rounded-full shadow-md px-16 py-6 gap-x-5 items-center"}>
-                    <img src={filter} alt="filter" className={"size-7"}/>
-                    <button className={"font-dmSans font-bold text-xl"}>
-                        Filter
-                    </button>
-                    <img src={arrowDown} alt="arrowDown" className={"size-3"}/>
-                </div>
-            </div>
+            <CategoryFilter/>
             <SubCategoryFilter
                 isOptional={false}
                 categoryActiveIndex={activeCategory}

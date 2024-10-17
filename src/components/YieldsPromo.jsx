@@ -83,13 +83,13 @@ const YieldsPromo = () => {
             <div className="flex flex-row justify-between items-center my-16">
                 <h3 className="font-dmSans font-bold text-4xl mr-2">Promo Bahan Baku</h3>
                 <div className="flex flex-row items-center">
-                    <h3 className="font-dmSans text-gray-500 text-3xl mr-4">Berakhir dalam</h3>
+                    <h3 className="font-dmSans text-gray-500 text-3xl mr-4 hidden lg:block">Berakhir dalam</h3>
                     <CountdownTimer targetTime={targetTime} />
                 </div>
             </div>
 
             {/* Grid of Yields Items */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6">
                 {paginatedYieldsItems.map((item, index) => (
                     <YieldsCard key={index} item={item} />
                 ))}

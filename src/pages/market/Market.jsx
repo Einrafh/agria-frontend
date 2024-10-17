@@ -575,7 +575,7 @@ const Market = ({category}) => {
                                     Jawa Timur
                                 </h3>
                             </div>
-                            <div className="grid grid-rows-2 grid-cols-3 gap-6">
+                            <div className="grid grid-rows-2 grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {paginatedItems.map((item, index) => (
                                     <PropertyCard key={index} item={item} />
                                 ))}
@@ -588,7 +588,7 @@ const Market = ({category}) => {
                                     Daftar Bahan Baku
                                 </h3>
                             </div>
-                            <div className="grid grid-rows-2 grid-cols-4 gap-6">
+                            <div className="grid grid-rows-2 grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
                                 {paginatedItems.map((item, index) => (
                                     <YieldsCard key={index} item={item} />
                                 ))}

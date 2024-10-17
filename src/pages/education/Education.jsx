@@ -248,70 +248,57 @@ const Education = () => {
                 <div className={`${styles.boxWidth}`}>
                     <a
                         href="/content"
-                        className="flex flex-row rounded-2xl shadow-md border-2 border-transparent overflow-hidden cursor-pointer hover:border-primary transition-colors duration-100"
+                        className="flex flex-col lg:flex-row rounded-2xl shadow-md border-2 border-transparent overflow-hidden cursor-pointer hover:border-primary transition-colors duration-100"
                     >
-                        <img src={educationAgain} alt="education" className={"w-[408px] h-auto"}/>
-                        <div className={"flex flex-col m-9 justify-between"}>
-                            <div className={"flex flex-row gap-x-12"}>
-                                <h3 className={"font-dmSans font-bold text-3xl"}>
+                        <img src={educationAgain} alt="education" className="w-full lg:w-[408px] h-auto"/>
+                        <div className="flex flex-col m-6 lg:m-9 justify-between">
+                            <div className="flex flex-col lg:flex-row gap-y-4 lg:gap-x-12">
+                                <h3 className="font-dmSans font-bold text-xl lg:text-3xl">
                                     23 Cara Membuat Tanah Lebih Subur, Salah Satunya Pakai Pupuk Kimia?
                                 </h3>
-                                <img src={save} alt="save" className={"size-7 m-1"}/>
+                                <img src={save} alt="save" className="w-6 h-6 lg:w-7 lg:h-7 m-1 hidden lg:block"/>
                             </div>
-                            <p className="font-dmSans text-base pr-20 my-6">
-                                Lorem ipsum dolor sit amet consectetur.
-                                Neque consequat urna amet blandit.
-                                Metus tellus libero at adipiscing justo ut proin dignissim.
-                                Id curabitur congue ultricies nulla magna.
-                                Ut nec ac aliquam nibh ridiculus.
-                                Libero nulla nec sit ultrices ac.
-                                Sed donec sit dapibus mattis.
-                                In lacus commodo et ac orci molestie tortor velit semper.
-                                Porttitor amet facilisi fringilla volutpat convallis quis.
+                            <p className="font-dmSans text-sm lg:text-base pr-0 lg:pr-20 my-4 lg:my-6">
+                                Lorem ipsum dolor sit amet consectetur. Neque consequat urna amet blandit. Metus tellus
+                                libero at adipiscing
+                                justo ut proin dignissim. Id curabitur congue ultricies nulla magna. Ut nec ac aliquam
+                                nibh ridiculus. Libero
+                                nulla nec sit ultrices ac. Sed donec sit dapibus mattis. In lacus commodo et ac orci
+                                molestie tortor velit
+                                semper. Porttitor amet facilisi fringilla volutpat convallis quis.
                             </p>
-                            <div className={"flex flex-row justify-between"}>
-                                <div className={"flex flex-row gap-x-6"}>
-                                    <img src={eduProfile} alt="eduProfile" className={"size-14"}/>
-                                    <div className={"flex flex-row justify-between"}>
-                                        <div className={"flex flex-col gap-y-1"}>
-                                            <h3 className={"font-dmSans font-bold text-xl"}>
-                                                Rafly
-                                            </h3>
-                                            <h3 className={"font-dmSans text-base"}>
-                                                19 September 2024
-                                            </h3>
-                                        </div>
+                            <div className="flex flex-col md:flex-row justify-between gap-y-4">
+                                <div className="flex flex-row gap-x-4 lg:gap-x-6">
+                                    <img src={eduProfile} alt="eduProfile" className="w-10 h-10 lg:w-14 lg:h-14"/>
+                                    <div className="flex flex-col justify-center">
+                                        <h3 className="font-dmSans font-bold text-base lg:text-xl">Rafly</h3>
+                                        <h3 className="font-dmSans text-sm lg:text-base">19 September 2024</h3>
                                     </div>
                                 </div>
-                                <div className={"flex flex-row items-end gap-x-12"}>
-                                    <div className={"flex flex-row items-center gap-x-4"}>
-                                        <img src={love} alt="love" className={"size-6"}/>
-                                        <h3 className={"font-dmSans font-bold text-xl text-[#969696]"}>
-                                            1
-                                        </h3>
+                                <div className="flex flex-row justify-between items-end gap-x-8 lg:gap-x-12">
+                                    <div className="flex flex-row items-center gap-x-2 lg:gap-x-4">
+                                        <img src={love} alt="love" className="w-4 h-4 lg:w-6 lg:h-6"/>
+                                        <h3 className="font-dmSans font-bold text-sm lg:text-xl text-[#969696]">1</h3>
                                     </div>
-                                    <div className={"flex flex-row items-center gap-x-4"}>
-                                        <img src={view} alt="view" className={"size-6"}/>
-                                        <h3 className={"font-dmSans font-bold text-xl text-[#969696]"}>
-                                            23
-                                        </h3>
+                                    <div className="flex flex-row items-center gap-x-2 lg:gap-x-4">
+                                        <img src={view} alt="view" className="w-4 h-4 lg:w-6 lg:h-6"/>
+                                        <h3 className="font-dmSans font-bold text-sm lg:text-xl text-[#969696]">23</h3>
                                     </div>
-                                    <div className={"flex flex-row items-center gap-x-4"}>
-                                        <img src={comment} alt="comment" className={"size-6"}/>
-                                        <h3 className={"font-dmSans font-bold text-xl text-[#969696]"}>
-                                            3
-                                        </h3>
+                                    <div className="flex flex-row items-center gap-x-2 lg:gap-x-4">
+                                        <img src={comment} alt="comment" className="w-4 h-4 lg:w-6 lg:h-6"/>
+                                        <h3 className="font-dmSans font-bold text-sm lg:text-xl text-[#969696]">3</h3>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </a>
 
+
                     <div className="flex flex-col gap-y-6 mt-16">
                         <h3 className="font-dmSans font-bold text-4xl">
                             Latest
                         </h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6">
                             {paginatedEducationItems.map((item, index) => (
                                 <SmallEducationCard key={index} item={item}/>
                             ))}
@@ -335,7 +322,8 @@ const Education = () => {
                         <h3 className="font-dmSans font-bold text-4xl">
                             Must Read
                         </h3>
-                        <div className="grid grid-cols-[1fr_624px_1fr] gap-x-6 h-full">
+                        <div
+                            className="grid grid-cols-1 gap-y-6 md:grid-cols-2 lg:grid-cols-[1fr_624px_1fr] gap-x-6 h-full">
                             <MustReadCard item={dataMustRead}/>
 
                             <LargeMustReadCard item={dataLargeMustRead}/>
@@ -347,13 +335,14 @@ const Education = () => {
                         </div>
                     </div>
 
+
                     <div className="flex flex-col mt-16 gap-y-9">
                         <h3 className="font-dmSans font-bold text-4xl">
                             Discover More
                         </h3>
                         <div className="flex flex-col gap-y-6">
                             {paginatedItems.map((item, index) => (
-                                <EducationCard key={index} item={item} />
+                                <EducationCard key={index} item={item}/>
                             ))}
                             {/* PaginationNumber untuk mengatur pagination */}
                             <PaginationNumber
