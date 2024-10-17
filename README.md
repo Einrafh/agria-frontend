@@ -1,4 +1,4 @@
-# Agria Frontend
+![Register1](https://github.com/user-attachments/assets/13fd9e7a-49f0-4608-9322-65bfb96161cf)# Agria Frontend
 
 ## 📌 Live Demo
 
@@ -50,7 +50,13 @@ Here are the key technologies used in building the frontend:
 
 Screenshots of the application's current development progress:
 
-
+![Login](assets/Bahan.png)
+![Register](assets/Register.png)
+![Register1](assets/Register1.png)
+![Homepage](assets/Homepage.png)
+![Properti](assets/Properti.png)
+![Bahan](assets/Bahan.png)
+![Edukasi](assets/Edukasi.png)
 
 ## 🌟 Credits
 
