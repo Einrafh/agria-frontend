@@ -4,11 +4,12 @@ import PaginationLine from "../components/PaginationLine";
 import CountdownTimer from "../components/CountdownTimer";
 import YieldsCard from "./YieldsCard.jsx";
 
-const YieldsPromo = () => {
-    const targetTime = new Date().setHours(23, 30, 0);
+const YieldsPromo = ({data}) => {
+    console.log(data);
+    const targetTime = Date.now() + (data?.data?.products_promo?.time_life_in_seconds || 0) * 1000;
 
     // Simulasi data yields
-    const yields = [
+    /*const yields = [
         {
             image: promoYields,
             category: "Pertanian",
@@ -60,7 +61,9 @@ const YieldsPromo = () => {
             certificate: "SHM"
         },
         // Tambahkan item lainnya...
-    ];
+    ];*/
+
+    const yields = data?.data?.products_promo?.products || [];
 
     // Pagination setup
     const [yieldsCurrentPage, setYieldsCurrentPage] = useState(0);

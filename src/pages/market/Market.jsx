@@ -12,9 +12,33 @@ import {
 import YieldsPromo from "../../components/YieldsPromo.jsx";
 import YieldsCard from "../../components/YieldsCard.jsx";
 import PaginationNumber from "../../components/PaginationNumber.jsx";
+import { getDataMarket } from '../../services/apiService';
 
 const Market = ({category}) => {
-    const property = [
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    
+    const fetchData = async () => {
+        try {
+            const result = await getDataMarket();
+            setData(result);
+            setLoading(false);
+        } catch (err) {
+            console.log(err);
+            setError('Error fetching data');
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const property = data?.data?.properties?.data || [];
+    const yields = data?.data?.products?.products || [];
+
+    /*const property = [
         {
             image: promoProperti,
             category: "Pertanian",
@@ -510,7 +534,7 @@ const Market = ({category}) => {
             certificate: "SHM"
         },
         // Tambahkan item lainnya...
-    ];
+    ];*/
 
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 18;
@@ -559,9 +583,9 @@ const Market = ({category}) => {
                         setCategoryActiveIndex={handleCategoryChange}
                     />
                     {/* Jika Properti dipilih */}
-                    {activeCategory === 0 && <PropertyPromo/>}
+                    {activeCategory === 0 && <PropertyPromo data={data}/>}
                     {/* Jika Bahan Baku dipilih */}
-                    {activeCategory === 1 && <YieldsPromo/>}
+                    {activeCategory === 1 && <YieldsPromo data={data}/>}
                 </div>
             </div>
 

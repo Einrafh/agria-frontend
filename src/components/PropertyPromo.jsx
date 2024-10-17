@@ -4,11 +4,11 @@ import PaginationLine from "../components/PaginationLine";
 import PropertyCard from "./PropertyCard.jsx";
 import CountdownTimer from "../components/CountdownTimer";
 
-const PropertyPromo = () => {
-    const targetTime = new Date().setHours(23, 30, 0);
+const PropertyPromo = ({data}) => {
+    const targetTime = Date.now() + (data?.data?.property_promo?.time_life_in_seconds || 0) * 1000;
 
     // Simulasi data properti
-    const property = [
+    /*const property = [
         {
             image: promoProperti,
             category: "Pertanian",
@@ -80,7 +80,9 @@ const PropertyPromo = () => {
             certificate: "SHM"
         },
         // Tambahkan item lainnya...
-    ];
+    ];*/
+
+    const property = data?.data?.property_promo?.properties || [];
 
     // Pagination setup
     const [propertyCurrentPage, setPropertyCurrentPage] = useState(0);

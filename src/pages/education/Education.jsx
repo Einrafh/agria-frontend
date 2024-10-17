@@ -11,17 +11,38 @@ import {
     view,
 } from "../../assets/index.js";
 import PaginationLine from "../../components/PaginationLine.jsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import EducationCard from "../../components/EducationCard.jsx";
 import LargeMustReadCard from "./LargeMustReadCard.jsx";
 import MustReadCard from "./MustReadCard.jsx";
 import SmallMustReadCard from "./SmallMustReadCard.jsx";
 import SmallEducationCard from "../../components/SmallEducationCard.jsx";
 import PaginationNumber from "../../components/PaginationNumber.jsx";
+import { getDataEducation } from '../../services/apiService';
 
 const Education = () => {
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    
+    const fetchData = async () => {
+        try {
+            const result = await getDataEducation();
+            setData(result);
+            setLoading(false);
+        } catch (err) {
+            console.log(err);
+            setError('Error fetching data');
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     // Simulasi data education
-    const education1 = [
+    /*const education1 = [
         {
             image: mustRead,
             profile: eduProfile,
@@ -83,7 +104,9 @@ const Education = () => {
             comments: 3,
         },
         // Tambahkan item lainnya...
-    ];
+    ];*/
+
+    const education1 = data?.data?.latest || [];
 
     const dataSmallMustRead = {
         image: mustReadSmall,
