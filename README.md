@@ -14,20 +14,19 @@ https://agria-pi.vercel.app/
 - [x] Yields Trading Page
 - [x] Education Page
 - [ ] Profile Page
-- [ ] API Integration
+- [x] API Integration
 
-*PROGRESS: 77%*
+*PROGRESS: 88%*
 
 ## 🗂 Index
 
-- [Agria Frontend](#agrialand-frontend)
-    - [🗂 Index](#-index)
-    - [🔧 Development Overview](#-development-overview)
-        - [🛠 Tech Stack](#-tech-stack)
-        - [📁 Project Structure](#-project-structure)
-    - [🖼 Gallery](#-gallery)
-    - [🌟 Credits](#-credits)
-    - [🔒 License](#-license)
+- [📌 Live Demo](#-live-demo)
+- [🗂 Index](#-index)
+- [🔧 Development Overview](#-development-overview)
+  - [🛠 Tech Stack](#-tech-stack)
+- [🖼 Gallery](#-gallery)
+- [🌟 Credits](#-credits)
+- [🔒 License](#-license)
 
 ## 🔧 Development Overview
 
