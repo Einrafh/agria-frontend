@@ -4,9 +4,11 @@
 
 https://agria-pi.vercel.app/
 
+## 🧩 Figma
+
 https://www.figma.com/design/wEakK3EyrCVkDPlz8kN40N/AGRIA?node-id=410-31&t=3zoz2OYh2IUwyfBM-1
 
-*Development Progress*
+## 🏃‍♂️‍➡️ Development Progress
 
 - [x] Landing Page
 - [x] Login Page
@@ -23,6 +25,8 @@ https://www.figma.com/design/wEakK3EyrCVkDPlz8kN40N/AGRIA?node-id=410-31&t=3zoz2
 ## 🗂 Index
 
 - [📌 Live Demo](#-live-demo)
+- [🧩 Figma](#-figma)
+- [🏃‍♂️‍➡️ Development Progress](#-development-progress)
 - [🗂 Index](#-index)
 - [🔧 Development Overview](#-development-overview)
   - [🛠 Tech Stack](#-tech-stack)
