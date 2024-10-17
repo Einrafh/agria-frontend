@@ -1,3 +1,4 @@
+import {useEffect, useState} from "react";
 import styles from "../../style.js";
 import {Features, Footer, Hero, Market, Navbar, Promo} from "../../components/index.js";
 import Education from "../../components/Education.jsx";
@@ -11,8 +12,37 @@ import {
     heroBackgroundShadow1,
     heroBackgroundShadow2, whiteArrowDown,
 } from "../../assets/index.js";
+import { getDataHomepage, postDataHomepage } from '../../services/apiService';
 
 export default function Home() {
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    
+    const fetchData = async () => {
+        try {
+            const result = await getDataHomepage();
+            setData(result);
+            setLoading(false);
+        } catch (err) {
+            console.log(err);
+            setError('Error fetching data');
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+    
+    if (error) {
+        return <div>{error}</div>;
+    }
+
     return (
         <div className="bg-[#F5F5F5] w-full h-full" >
             {/* Navbar Section */}
@@ -63,13 +93,13 @@ export default function Home() {
             </div>
             <div className={`bg-white ${styles.paddingX} ${styles.flexStart}`}>
                 <div className={`${styles.boxWidth}`}>
-                    <Promo/>
+                    <Promo data={data} />
                 </div>
             </div>
             <div className={"bg-white border-t-4 border-secondary"}>
                 <div className={`${styles.paddingX} ${styles.flexStart}`}>
                     <div className={`${styles.boxWidth}`}>
-                        <Market category="property"/>
+                        <Market category="property" data={data}/>
                     </div>
                 </div>
             </div>
