@@ -17,11 +17,11 @@ export default function Login() {
                         <div className="flex flex-col gap-y-6 lg:gap-y-8">
                             <div className="flex flex-col gap-y-2 lg:gap-y-4">
                                 <h3 className="font-dmSans text-sm lg:text-base">
-                                    Username
+                                    Email
                                 </h3>
                                 <input
                                     type="text"
-                                    placeholder="Masukkan Username"
+                                    placeholder="Masukkan Email"
                                     className="bg-[#FAFAFA] rounded-lg font-dmSans w-full lg:w-[440px] px-6 lg:px-9 py-4 lg:py-5"
                                 />
                             </div>
