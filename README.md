@@ -35,7 +35,7 @@ This section provides details about the development of Agria's frontend.
 
 ### 🛠 Tech Stack
 
-   Here are the key technologies used in building the frontend:
+Here are the key technologies used in building the frontend:
 
 | No  | Technology           | Purpose                                                      |
 | --- | -------------------- | ------------------------------------------------------------ |
@@ -45,6 +45,8 @@ This section provides details about the development of Agria's frontend.
 | 4   | React Router DOM     | For client-side routing between pages                        |
 
 ### 📁 Project Structure
+
+Here are the key technologies used in building the frontend:
 
 | No  | Directory            | Description                                                                 |
 | --- | -------------------- | --------------------------------------------------------------------------- |
