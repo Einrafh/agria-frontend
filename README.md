@@ -1,4 +1,4 @@
-![Register1](https://github.com/user-attachments/assets/13fd9e7a-49f0-4608-9322-65bfb96161cf)# Agria Frontend
+# Agria Frontend
 
 ## 📌 Live Demo
 
