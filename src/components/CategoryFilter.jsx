@@ -31,7 +31,7 @@ const CategoryFilter = () => {
                 </button>
 
                 {/* Menu items */}
-                <ul className={`lg:flex lg:flex-row items-center ${isDropdownOpen ? 'block' : 'hidden'} lg:block`}>c
+                <ul className={`lg:flex lg:flex-row items-center ${isDropdownOpen ? 'block' : 'hidden'} lg:block`}>
                     {menuItems.map((item, index) => (
                         <button
                             key={index}

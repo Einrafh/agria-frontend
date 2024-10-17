@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://your-backend-url.com/api',
+    baseURL: 'https://agria-backend.iyh.me/v1/',
     timeout: 5000,
 });
 

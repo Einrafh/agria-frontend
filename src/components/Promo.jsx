@@ -4,13 +4,12 @@ import { promoProperti, promoYields, bintang, luas, mail, leftButton, rightButto
 import PaginationLine from "../components/PaginationLine";
 import PropertyCard from "./PropertyCard.jsx";
 import YieldsCard from "./YieldsCard.jsx";
-// import { getDataHomepage, postDataHomepage } from '../services/apiService';
 
-const Promo = () => {
+const Promo = ({data}) => {
     // const [data, setData] = useState([]);
     // const [loading, setLoading] = useState(true);
     // const [error, setError] = useState(null);
-    //
+
     // const fetchData = async () => {
     //     try {
     //         const result = await getDataHomepage();
@@ -31,7 +30,7 @@ const Promo = () => {
 
     // useEffect(() => {
     //     fetchData();
-    // }, [data]);
+    // }, []);
 
 
     // const userDetails = data.data.user_details;
@@ -41,137 +40,148 @@ const Promo = () => {
     // const products = data.data.products;
     // const educations = data.data.educations;
 
-    const targetTime = new Date().setHours(23, 30, 0);
+    // const targetTime = new Date().setHours(23, 30, 0);
+
+    console.log('test: ' + data);
+
+    const targetTimeLahan = Date.now() + (data?.data?.property_promo?.time_life_in_seconds || 0) * 1000;
+    const targetTimeBahanBaku = Date.now() + (data?.data?.property_promo?.time_life_in_seconds || 0) * 1000;
 
     // Simulasi data properti
-    const property = [
-        {
-            image: promoProperti,
-            category: "Pertanian",
-            rating: 4.8,
-            title: "Lahan Pertanian Padi",
-            address: "Jl. Tvri, Oro-Oro Ombo",
-            price: "20.000.000",
-            area: 900,
-            certificate: "SHM"
-        },
-        {
-            image: promoProperti,
-            category: "Pertanian",
-            rating: 4.8,
-            title: "Lahan Pertanian Padi",
-            address: "Jl. Tvri, Oro-Oro Ombo",
-            price: "20.000.000",
-            area: 900,
-            certificate: "SHM"
-        },
-        {
-            image: promoProperti,
-            category: "Pertanian",
-            rating: 4.8,
-            title: "Lahan Pertanian Padi",
-            address: "Jl. Tvri, Oro-Oro Ombo",
-            price: "20.000.000",
-            area: 900,
-            certificate: "SHM"
-        },
-        {
-            image: promoProperti,
-            category: "Pertanian",
-            rating: 4.1,
-            title: "Lahan Pertanian Padi",
-            address: "Jl. Tvri, Oro-Oro Ombo",
-            price: "35.000.000",
-            area: 900,
-            certificate: "SHM"
-        },
-        {
-            image: promoProperti,
-            category: "Pertanian",
-            rating: 4.8,
-            title: "Lahan Pertanian Padi",
-            address: "Jl. Tvri, Oro-Oro Ombo",
-            price: "20.000.000",
-            area: 900,
-            certificate: "SHM"
-        },
-        {
-            image: promoProperti,
-            category: "Pertanian",
-            rating: 4.8,
-            title: "Lahan Pertanian Padi",
-            address: "Jl. Tvri, Oro-Oro Ombo",
-            price: "20.000.000",
-            area: 900,
-            certificate: "SHM"
-        },
-        {
-            image: promoProperti,
-            category: "Pertanian",
-            rating: 4.8,
-            title: "Lahan Pertanian Padi",
-            address: "Jl. Tvri, Oro-Oro Ombo",
-            price: "20.000.000",
-            area: 900,
-            certificate: "SHM"
-        },
-        // Tambahkan item lainnya...
-    ];
+    // const property = [
+    //     {
+    //         image: promoProperti,
+    //         category: "Pertanian",
+    //         rating: 4.8,
+    //         title: "Lahan Pertanian Padi",
+    //         address: "Jl. Tvri, Oro-Oro Ombo",
+    //         price: "20.000.000",
+    //         area: 900,
+    //         certificate: "SHM"
+    //     },
+    //     {
+    //         image: promoProperti,
+    //         category: "Pertanian",
+    //         rating: 4.8,
+    //         title: "Lahan Pertanian Padi",
+    //         address: "Jl. Tvri, Oro-Oro Ombo",
+    //         price: "20.000.000",
+    //         area: 900,
+    //         certificate: "SHM"
+    //     },
+    //     {
+    //         image: promoProperti,
+    //         category: "Pertanian",
+    //         rating: 4.8,
+    //         title: "Lahan Pertanian Padi",
+    //         address: "Jl. Tvri, Oro-Oro Ombo",
+    //         price: "20.000.000",
+    //         area: 900,
+    //         certificate: "SHM"
+    //     },
+    //     {
+    //         image: promoProperti,
+    //         category: "Pertanian",
+    //         rating: 4.1,
+    //         title: "Lahan Pertanian Padi",
+    //         address: "Jl. Tvri, Oro-Oro Ombo",
+    //         price: "35.000.000",
+    //         area: 900,
+    //         certificate: "SHM"
+    //     },
+    //     {
+    //         image: promoProperti,
+    //         category: "Pertanian",
+    //         rating: 4.8,
+    //         title: "Lahan Pertanian Padi",
+    //         address: "Jl. Tvri, Oro-Oro Ombo",
+    //         price: "20.000.000",
+    //         area: 900,
+    //         certificate: "SHM"
+    //     },
+    //     {
+    //         image: promoProperti,
+    //         category: "Pertanian",
+    //         rating: 4.8,
+    //         title: "Lahan Pertanian Padi",
+    //         address: "Jl. Tvri, Oro-Oro Ombo",
+    //         price: "20.000.000",
+    //         area: 900,
+    //         certificate: "SHM"
+    //     },
+    //     {
+    //         image: promoProperti,
+    //         category: "Pertanian",
+    //         rating: 4.8,
+    //         title: "Lahan Pertanian Padi",
+    //         address: "Jl. Tvri, Oro-Oro Ombo",
+    //         price: "20.000.000",
+    //         area: 900,
+    //         certificate: "SHM"
+    //     },
+    //     // Tambahkan item lainnya...
+    // ];
+
+    const property = data?.data?.property_promo?.properties || [];
+
+    console.log(property);
 
     // Simulasi data yields
-    const yields = [
-        {
-            image: promoYields,
-            category: "Pertanian",
-            rating: 4.5,
-            title: "Bayam Sore",
-            address: "Jl. Tvri, Oro-Oro Ombo",
-            price: "127.500",
-            area: 900,
-            certificate: "SHM"
-        },
-        {
-            image: promoYields,
-            category: "Pertanian",
-            rating: 4.5,
-            title: "Bayam Sore",
-            address: "Jl. Tvri, Oro-Oro Ombo",
-            price: "127.500",
-            area: 900,
-            certificate: "SHM"
-        },
-        {
-            image: promoYields,
-            category: "Pertanian",
-            rating: 4.5,
-            title: "Bayam Sore",
-            address: "Jl. Tvri, Oro-Oro Ombo",
-            price: "127.500",
-            area: 900,
-            certificate: "SHM"
-        },
-        {
-            image: promoYields,
-            category: "Pertanian",
-            rating: 4.5,
-            title: "Bayam Sore",
-            address: "Jl. Tvri, Oro-Oro Ombo",
-            price: "50.000.000",
-            area: 900,
-            certificate: "SHM"
-        },
-        {
-            image: promoYields,
-            category: "Pertanian",
-            rating: 4.5,
-            title: "Bayam Sore",
-            address: "Jl. Tvri, Oro-Oro Ombo",
-            price: "127.500",
-            area: 900,
-            certificate: "SHM"
-        },
-        // Tambahkan item lainnya...
-    ];
+    // const yields = [
+    //     {
+    //         image: promoYields,
+    //         category: "Pertanian",
+    //         rating: 4.5,
+    //         title: "Bayam Sore",
+    //         address: "Jl. Tvri, Oro-Oro Ombo",
+    //         price: "127.500",
+    //         area: 900,
+    //         certificate: "SHM"
+    //     },
+    //     {
+    //         image: promoYields,
+    //         category: "Pertanian",
+    //         rating: 4.5,
+    //         title: "Bayam Sore",
+    //         address: "Jl. Tvri, Oro-Oro Ombo",
+    //         price: "127.500",
+    //         area: 900,
+    //         certificate: "SHM"
+    //     },
+    //     {
+    //         image: promoYields,
+    //         category: "Pertanian",
+    //         rating: 4.5,
+    //         title: "Bayam Sore",
+    //         address: "Jl. Tvri, Oro-Oro Ombo",
+    //         price: "127.500",
+    //         area: 900,
+    //         certificate: "SHM"
+    //     },
+    //     {
+    //         image: promoYields,
+    //         category: "Pertanian",
+    //         rating: 4.5,
+    //         title: "Bayam Sore",
+    //         address: "Jl. Tvri, Oro-Oro Ombo",
+    //         price: "50.000.000",
+    //         area: 900,
+    //         certificate: "SHM"
+    //     },
+    //     {
+    //         image: promoYields,
+    //         category: "Pertanian",
+    //         rating: 4.5,
+    //         title: "Bayam Sore",
+    //         address: "Jl. Tvri, Oro-Oro Ombo",
+    //         price: "127.500",
+    //         area: 900,
+    //         certificate: "SHM"
+    //     },
+    //     // Tambahkan item lainnya...
+    // ];
+
+    const yields = data?.data?.products_promo?.products || [];
 
     // Pagination states
     const [propertyCurrentPage, setPropertyCurrentPage] = useState(0);
@@ -258,7 +268,7 @@ const Promo = () => {
                 <h3 className="font-dmSans font-bold text-3xl md:text-4xl mr-2">Promo Properti</h3>
                 <div className="flex flex-row items-center">
                     <h3 className="font-dmSans text-gray-500 text-3xl mr-4 lg:block hidden">Berakhir dalam</h3>
-                    <CountdownTimer targetTime={targetTime} />
+                    <CountdownTimer targetTime={targetTimeLahan} />
                 </div>
             </div>
 
@@ -287,7 +297,7 @@ const Promo = () => {
                 <h3 className="font-dmSans font-bold text-3xl md:text-4xl mr-2">Promo Bahan Baku</h3>
                 <div className="flex flex-row items-center">
                     <h3 className="font-dmSans text-gray-500 text-3xl mr-4 lg:block hidden">Berakhir dalam</h3>
-                    <CountdownTimer targetTime={targetTime} />
+                    <CountdownTimer targetTime={targetTimeBahanBaku} />
                 </div>
             </div>
 

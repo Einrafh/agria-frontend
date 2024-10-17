@@ -7,7 +7,8 @@ import PropertyPromo from "./PropertyPromo.jsx";
 import YieldsPromo from "./YieldsPromo.jsx";
 import CategoryFilter from "./CategoryFilter.jsx";
 
-const Market = ({category}) => {
+const Market = ({category, data}) => {
+    /*
     const property = [
         {
             image: promoProperti,
@@ -194,7 +195,10 @@ const Market = ({category}) => {
             certificate: "SHM"
         },
         // Tambahkan item lainnya...
-    ];
+    ];*/
+
+    const property = data?.data?.properties?.data || [];
+    const yields = data?.data?.products || [];
 
     const [menuActiveIndex, setMenuActiveIndex] = useState(null);
     const [categoryActiveIndex, setCategoryActiveIndex] = useState(null);
@@ -232,6 +236,8 @@ const Market = ({category}) => {
     const handleCategoryChange = (index) => {
         setActiveCategory(index);
     };
+
+    console.log(property);
 
     return (
         <section>
