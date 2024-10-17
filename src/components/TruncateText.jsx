@@ -1,4 +1,5 @@
 const TruncateText = ({text, maxWords}) => {
+    if (!text || typeof text !== 'string') return null;
     const words = text.split(' ');
 
     if (words.length > maxWords) {
