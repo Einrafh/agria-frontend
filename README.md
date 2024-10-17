@@ -20,15 +20,14 @@ https://agria-pi.vercel.app/
 
 ## 🗂 Index
 
-- [Agria Frontend](#agrialand-frontend)
-    - [📌 Live Demo](#-live-demo)
-    - [🗂 Index](#-index)
-    - [🔧 Development Overview](#-development-overview)
-        - [🛠 Tech Stack](#-tech-stack)
-        - [📁 Project Structure](#-project-structure)
-    - [🖼 Gallery](#-gallery)
-    - [🌟 Credits](#-credits)
-    - [🔒 License](#-license)
+- [📌 Live Demo](#-live-demo)
+- [🗂 Index](#-index)
+- [🔧 Development Overview](#-development-overview)
+  - [🛠 Tech Stack](#-tech-stack)
+  - [📁 Project Structure](#-project-structure)
+- [🖼 Gallery](#-gallery)
+- [🌟 Credits](#-credits)
+- [🔒 License](#-license)
 
 ## 🔧 Development Overview
 
