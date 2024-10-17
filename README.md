@@ -35,7 +35,7 @@ This section provides details about the development of Agria's frontend.
 
 ### 🛠 Tech Stack
 
-Here are the key technologies used in building the frontend:
+   Here are the key technologies used in building the frontend:
 
 | No  | Technology           | Purpose                                                      |
 | --- | -------------------- | ------------------------------------------------------------ |
