@@ -49,7 +49,7 @@ Here are the key technologies used in building the frontend:
 
 Screenshots of the application's current development progress:
 
-![Login](assets/Bahan.png)
+![Login](assets/Login.png)
 ![Register](assets/Register.png)
 ![Register1](assets/Register1.png)
 ![Homepage](assets/Homepage.png)
