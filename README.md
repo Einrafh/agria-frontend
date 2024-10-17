@@ -36,14 +36,14 @@ This section provides details about the development of Agria's frontend.
 
 Here are the key technologies used in building the frontend:
 
-| Technology              | Purpose                                                    |
-|-------------------------|------------------------------------------------------------|
+| Technology             | Purpose                                                    |
+|------------------------|------------------------------------------------------------|
 | *React*                | Frontend framework for building the user interface         |
-| *Tailwind CSS*         | For building a responsive and customizable UI                |
-| *Vite.js*              | For fast and optimized frontend build tooling                |
+| *Tailwind CSS*         | For building a responsive and customizable UI              |
+| *Vite.js*              | For fast and optimized frontend build tooling              |
 | *React Router*         | For managing client-side routing in the frontend           |
 | *Axios*                | For making API requests from the frontend to the backend   |
-| *React Router DOM*     | For client-side routing between pages                        |
+| *React Router DOM*     | For client-side routing between pages                      |
 
 ## 🖼 Gallery
 
@@ -54,6 +54,7 @@ Screenshots of the application's current development progress:
 ![Register1](assets/Register1.png)
 ![Homepage](assets/Homepage.png)
 ![Properti](assets/Properti.png)
+![Detail](assets/Detail.png)
 ![Bahan](assets/Bahan.png)
 ![Edukasi](assets/Edukasi.png)
 
