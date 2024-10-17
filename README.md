@@ -48,11 +48,6 @@ Here are the key technologies used in building the frontend:
 
 Below is the directory structure of the frontend project:
 
-
-├───node_modules/ ├───public/ ├───src/ │ ├───assets/ │ │ ├───images/ │ ├───components/ │ │ ├───auth/ │ │ │ ├───Login.js │ │ │ └───Register.js │ │ ├───layout/ │ │ │ └───Navbar.js │ │ ├───pages/ │ │ │ ├───Home.js │ │ │ ├───LandLeasing.js │ │ │ ├───MaterialTrading.js │ │ │ ├───Education.js │ │ │ └───Profile.js │ ├───services/ │ ├───App.js │ ├───index.js ├───.gitignore ├───package.json ├───README.md
-
-
-
 | No  | Directory            | Description                                                                 |
 | --- | -------------------- | --------------------------------------------------------------------------- |
 | 1   | src/components     | Contains all components that reuseable                                      |
