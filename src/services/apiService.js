@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://your-backend-url.com/api',
+    baseURL: 'https://agria-backend.iyh.me/v1/',
     timeout: 5000,
 });
 
@@ -21,6 +21,26 @@ api.interceptors.request.use(
 export const getDataHomepage = async () => {
     try {
         const response = await api.get('https://agria-backend.iyh.me/v1/menu/homepage');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        throw error;
+    }
+};
+
+export const getDataMarket = async () => {
+    try {
+        const response = await api.get('https://agria-backend.iyh.me/v1/menu/market');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        throw error;
+    }
+};
+
+export const getDataEducation = async () => {
+    try {
+        const response = await api.get('https://agria-backend.iyh.me/v1/menu/education');
         return response.data;
     } catch (error) {
         console.error('Error fetching data:', error);

@@ -33,7 +33,7 @@ export const CountdownTimer = ({ targetTime }) => {
     };
 
     return (
-        <div className="flex flex-row text-3xl font-bold text-white bg-red-500 p-4 rounded-lg">
+        <div className="flex flex-row text-sm md:text-3xl font-bold text-white bg-red-500 p-1.5 md:p-4 rounded-lg">
             <div className="flex flex-col items-center">
                 <span>{formatTime(timeLeft.hours || 0)}</span>
             </div>

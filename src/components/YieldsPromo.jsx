@@ -4,11 +4,12 @@ import PaginationLine from "../components/PaginationLine";
 import CountdownTimer from "../components/CountdownTimer";
 import YieldsCard from "./YieldsCard.jsx";
 
-const YieldsPromo = () => {
-    const targetTime = new Date().setHours(23, 30, 0);
+const YieldsPromo = ({data}) => {
+    console.log(data);
+    const targetTime = Date.now() + (data?.data?.products_promo?.time_life_in_seconds || 0) * 1000;
 
     // Simulasi data yields
-    const yields = [
+    /*const yields = [
         {
             image: promoYields,
             category: "Pertanian",
@@ -60,7 +61,9 @@ const YieldsPromo = () => {
             certificate: "SHM"
         },
         // Tambahkan item lainnya...
-    ];
+    ];*/
+
+    const yields = data?.data?.products_promo?.products || [];
 
     // Pagination setup
     const [yieldsCurrentPage, setYieldsCurrentPage] = useState(0);
@@ -83,13 +86,13 @@ const YieldsPromo = () => {
             <div className="flex flex-row justify-between items-center my-16">
                 <h3 className="font-dmSans font-bold text-4xl mr-2">Promo Bahan Baku</h3>
                 <div className="flex flex-row items-center">
-                    <h3 className="font-dmSans text-gray-500 text-3xl mr-4">Berakhir dalam</h3>
+                    <h3 className="font-dmSans text-gray-500 text-3xl mr-4 hidden lg:block">Berakhir dalam</h3>
                     <CountdownTimer targetTime={targetTime} />
                 </div>
             </div>
 
             {/* Grid of Yields Items */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6">
                 {paginatedYieldsItems.map((item, index) => (
                     <YieldsCard key={index} item={item} />
                 ))}

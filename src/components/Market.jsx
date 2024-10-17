@@ -5,8 +5,10 @@ import YieldsCard from "./YieldsCard.jsx";
 import SubCategoryFilter from "./SubCategoryFilter.jsx";
 import PropertyPromo from "./PropertyPromo.jsx";
 import YieldsPromo from "./YieldsPromo.jsx";
+import CategoryFilter from "./CategoryFilter.jsx";
 
-const Market = ({category}) => {
+const Market = ({category, data}) => {
+    /*
     const property = [
         {
             image: promoProperti,
@@ -193,7 +195,10 @@ const Market = ({category}) => {
             certificate: "SHM"
         },
         // Tambahkan item lainnya...
-    ];
+    ];*/
+
+    const property = data?.data?.properties?.data || [];
+    const yields = data?.data?.products || [];
 
     const [menuActiveIndex, setMenuActiveIndex] = useState(null);
     const [categoryActiveIndex, setCategoryActiveIndex] = useState(null);
@@ -232,32 +237,11 @@ const Market = ({category}) => {
         setActiveCategory(index);
     };
 
+    console.log(property);
+
     return (
         <section>
-            <div className={"flex flex-row justify-between items-center mt-20 mb-16 gap-x-6"}>
-                <div className={"rounded-full shadow-md"}>
-                    <ul className={"flex flex-row items-center"}>
-                        {menuItems.map((item, index) => (
-                            <button
-                                key={index}
-                                className={`px-16 py-6 ${menuActiveIndex === index ? 'bg-secondary rounded-full text-white' : ''}`}
-                                onClick={() => handleMenuClick(index)}
-                            >
-                                <h3 className={"font-dmSans font-bold text-xl"}>
-                                    {item}
-                                </h3>
-                            </button>
-                        ))}
-                    </ul>
-                </div>
-                <div className={"flex flex-row rounded-full shadow-md px-16 py-6 gap-x-5 items-center"}>
-                    <img src={filter} alt="filter" className={"size-7"}/>
-                    <button className={"font-dmSans font-bold text-xl"}>
-                        Filter
-                    </button>
-                    <img src={arrowDown} alt="arrowDown" className={"size-3"}/>
-                </div>
-            </div>
+            <CategoryFilter/>
             <SubCategoryFilter
                 isOptional={false}
                 categoryActiveIndex={activeCategory}
@@ -270,7 +254,7 @@ const Market = ({category}) => {
                             Jawa Timur
                         </h3>
                     </div>
-                    <div className="grid grid-rows-2 grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-rows-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {property.slice(0, 6).map((item, index) => (
                             <PropertyCard key={index} item={item} />
                         ))}
@@ -283,7 +267,7 @@ const Market = ({category}) => {
                             Daftar Bahan Baku
                         </h3>
                     </div>
-                    <div className="grid grid-rows-2 grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-rows-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {yields.slice(0, 8).map((item, index) => (
                             <YieldsCard key={index} item={item} />
                         ))}
@@ -294,7 +278,7 @@ const Market = ({category}) => {
                 href="/market"
                 className="block shadow-md rounded-xl mt-6 mb-20 border-2 border-transparent hover:border-primary transition-colors duration-100"
             >
-                <h3 className="font-dmSans font-bold text-3xl text-center py-6">
+                <h3 className="font-dmSans font-bold text-2xl md:text-3xl text-center py-6">
                     Lihat selengkapnya
                 </h3>
             </a>
