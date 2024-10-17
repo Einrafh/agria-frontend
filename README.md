@@ -37,24 +37,14 @@ This section provides details about the development of Agria's frontend.
 
 Here are the key technologies used in building the frontend:
 
-| No  | Technology           | Purpose                                                      |
-| --- | -------------------- | ------------------------------------------------------------ |
-| 1   | React.js             | For creating an interactive and responsive user interface    |
-| 2   | Tailwind CSS         | For building a responsive and customizable UI                |
-| 3   | Vite.js              | For fast and optimized frontend build tooling                |
-| 4   | React Router DOM     | For client-side routing between pages                        |
-
-### 📁 Project Structure
-
-Below is the directory structure of the frontend project:
-
-| No  | Directory            | Description                                                                 |
-| --- | -------------------- | --------------------------------------------------------------------------- |
-| 1   | src/components     | Contains all components that reuseable                                      |
-| 2   | src/pages          | Contains main pages like home, market, education, and more                  |
-| 3   | src/services       | Handles API calls and backend integration                                   |
-| 4   | src/assets         | Stores static assets such as images                                         |
-
+| Technology              | Purpose                                                    |
+|-------------------------|------------------------------------------------------------|
+| *React*                | Frontend framework for building the user interface         |
+| *Tailwind CSS*         | For building a responsive and customizable UI                |
+| *Vite.js*              | For fast and optimized frontend build tooling                |
+| *React Router*         | For managing client-side routing in the frontend           |
+| *Axios*                | For making API requests from the frontend to the backend   |
+| *React Router DOM*     | For client-side routing between pages                        |
 
 ## 🖼 Gallery
 
