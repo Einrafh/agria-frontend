@@ -4,6 +4,8 @@
 
 https://agria-pi.vercel.app/
 
+https://www.figma.com/design/wEakK3EyrCVkDPlz8kN40N/AGRIA?node-id=410-31&t=3zoz2OYh2IUwyfBM-1
+
 *Development Progress*
 
 - [x] Landing Page
